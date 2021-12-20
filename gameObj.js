@@ -176,6 +176,8 @@ class Player extends SpriteObject{
 
         Debug.addText(["x", this.x.toFixed()], ["y", this.y.toFixed()]);
         Debug.addText(["enable", this.enable]);
+
+        Debug.addText(["c", gameInfo.currentScene]);
     }
 
     //操作
