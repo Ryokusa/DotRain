@@ -206,15 +206,13 @@ class Point {
 
 //ゲームの基本情報
 class GameInfo {
-    constructor(title, w, h, maxFps, currentFps, currentScene){
+    constructor(title, w, h, maxFps, currentFps){
         this.title = title;
         this.w = w;
         this.h = h;
         this.maxFps = maxFps;
         this.currentFps = currentFps;
         this.timeCount = 0;
-        
-        this.currentScene = currentScene;
     }
 
     getCenterPos(){
@@ -1009,7 +1007,6 @@ class Game{
         this.currentScene.removeEventListener("changescene");
         this.currentScene.addEventListener("changescene", (e) =>
              this.changeScene(e.target));
-        this.gameInfo.currentScene = this.currentScene;
     }
 
     //elementタグに追加する形でスタート

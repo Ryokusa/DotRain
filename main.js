@@ -7,6 +7,7 @@ class MainScene extends Scene{
 
         this.dotGroup = new DotGroup(2000);
         this.player = new Player(this.dotGroup, 100, 200, 5);
+        this.player.addEventListener("playerDeath", ()=>{this.changeScene(new GameOverScene("game over", mainGame.gameInfo, renderingTarget))}); //TODO:死亡処理
         this.enemyGroup = [];
 
         this.titleScene = titleScene;
@@ -85,6 +86,11 @@ class GameOverScene extends Scene{
         const centerPos = gameInfo.getCenterPos();
         this.add(new TextObj("GAME OVER", centerPos.x, centerPos.y, "center", "#FFFFFF", 30));
     }
+
+    update(stageInfo, input){
+        super.update(stageInfo,input)
+        if (input.getKeyDown(" ")) this.changeScene(new TitleScene(this.renderingTarget));
+    }
 }
 
 class GameClearScene extends Scene{
@@ -109,8 +115,10 @@ assets.addImage("score", "img/SCOREs.png");
 for (let i = 0; i < 9; i++){
     assets.addImage("s"+i, "img/number/" + i + "s.png")
 }
+
+let mainGame = null;
 assets.loadAll().then((a) => {
-    const mainGame = new MainGame();
+    mainGame = new MainGame();
     mainGame.start(document.getElementById("game"));
     console.log("loaded");
 })

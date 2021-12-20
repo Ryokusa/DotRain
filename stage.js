@@ -46,6 +46,12 @@ class Stage1 extends Stage{
         enemy.addXAnim(new LinearAnimation(100, 10, 100));
         enemy.addXAnim(new LinearAnimation(10, 100, 100));
         enemy.addXAnim(new LinearAnimation(100, 10, 100));
+        enemy.addXAnim(new LinearAnimation(10, 100, 100));
+        enemy.addXAnim(new LinearAnimation(100, 10, 100));
+        enemy.addXAnim(new LinearAnimation(10, 100, 100));
+        enemy.addXAnim(new LinearAnimation(100, 10, 100));
+        enemy.addXAnim(new LinearAnimation(10, 100, 100));
+        enemy.addXAnim(new LinearAnimation(100, 10, 100));
         enemy.animStart();
         
 
