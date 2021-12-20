@@ -42,7 +42,7 @@ class MainScene extends Scene{
         //追加
         stage.gameObjs.forEach((gameObj) => {this.add(gameObj)});
 
-        this.compile();
+        //this.compile(); //非推奨
 
         this.add(this.dotGroup);
         this.add(this.player);
@@ -102,6 +102,7 @@ class GameClearScene extends Scene{
 
 //ゲーム開始
 Debug.setDebugElement(document.getElementById("debug"));
+//アセットダウンロード
 assets.addImage("menu", "img/menu.png");
 assets.addImage("player", "img/p.png");
 assets.addImage("score", "img/SCOREs.png");
