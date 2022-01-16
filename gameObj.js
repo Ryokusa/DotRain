@@ -233,7 +233,7 @@ class Player extends SpriteObject{
         
         //ポイント加算
         if(obj.isExistTag(Tag.point_dot)){
-            mainGame.currentScene.score += 1;
+            mainGame.currentScene.score += obj.point;
         }
     }
 

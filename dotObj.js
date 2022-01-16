@@ -118,6 +118,7 @@ class DotObj extends GameObject{
             this.initFunc(args[0], args[1], 1, 1, "#FFFFFF", true, args[2], args[3], 10, maxDy)
             this.originTags.push(Tag.point_dot);
             this.absorptionSpeed = absorptionSpeed;   //吸収スピード
+            this.point = 1;
         }
         this.updateFuncs[DotObj.id.Point] = (gameInfo, input) => {};
         this.renderFuncs[DotObj.id.Point] = renderDefault;

@@ -54,7 +54,8 @@ class MainScene extends Scene{
         this.add(this.player);
         this.enemyGroup = stage.enemyGroup;
 
-        this.add(new ScoreView(400 - 10*8-50, 300-10));
+        const digitNum = 6;
+        this.add(new ScoreView(400 - 10*digitNum-50, 300-10, digitNum));
         console.log("stage loded");
     }
 
@@ -67,6 +68,8 @@ class MainScene extends Scene{
         if (this.enemyGroup.isDeadAll()){
             this.changeScene(new GameClearScene("gameclear", gameInfo, this.renderingTarget));
         }
+
+        Debug.addText(["score", this.score]);
     }
 }
 
