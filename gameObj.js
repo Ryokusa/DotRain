@@ -230,6 +230,9 @@ class Player extends SpriteObject{
                 this.damage(num);
             }
         }
+        if(obj.isExistTag(Tag.point_dot)){
+            mainGame.currentScene.score += 1;
+        }
     }
 
     //ダメージ処理
@@ -315,7 +318,7 @@ class ScoreView extends GameObject{
             const w = this.scoreObjs[0].rect.w;
             for (let i = 0; i < this.digitNum; i++){
                 let ix = this.x + i * w + this.scoreMoji.rect.w;
-                context.drawImage(this.scoreObjs[this.getDigit(score, i+1)].image, ix, this.y);
+                context.drawImage(this.scoreObjs[this.getDigit(score, this.digitNum-(i+1))].image, ix, this.y);
             }
             super.render(canvas);
         }

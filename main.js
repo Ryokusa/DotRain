@@ -29,6 +29,8 @@ class MainScene extends Scene{
             obj.init()
         });
 
+        this.score = 0;
+
         console.log(this);
 
         console.log("mainscene");
@@ -115,7 +117,7 @@ Debug.setDebugElement(document.getElementById("debug"));
 assets.addImage("menu", "img/menu.png");
 assets.addImage("player", "img/p.png");
 assets.addImage("score", "img/SCOREs.png");
-for (let i = 0; i < 9; i++){
+for (let i = 0; i < 10; i++){
     assets.addImage("s"+i, "img/number/" + i + "s.png")
 }
 
