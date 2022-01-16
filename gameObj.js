@@ -130,6 +130,9 @@ class Player extends SpriteObject{
     }
 
     init(){
+        this.dMove = 0;
+        this.px = this._cx;
+        this.py = this._cy;
         this.x = this._cx;
         this.y = this._cy;
         this.hp = this._chp;
@@ -178,6 +181,18 @@ class Player extends SpriteObject{
         Debug.addText(["enable", this.enable]);
 
         Debug.addText(["c", mainGame.gameInfo.currentScene]);
+
+        //エフェクトテスト
+        const dx = this.x - this.px;
+        const dy = this.y - this.py;
+        this.px = this.x;
+        this.py = this.y;
+        const dis = dx*dx + dy * dy;
+        this.dMove += dis;
+        if(this.dMove > 80){
+            this.dMove %= 80;
+            mainGame.currentScene.dotGroup.addDot(DotObj.id.Effect, [this.x+this.w/2, this.y+this.h/2]);
+        }
     }
 
     //操作

@@ -11,7 +11,8 @@ class DotObj extends GameObject{
         RedSplash:3, 
         Missile:4, 
         EnemyNormalBullet:5, 
-        Tullet:6 }   
+        Tullet:6,
+        Effect:7}   
         
     constructor(type, ...args){
         super(0,0,0,0);
@@ -291,6 +292,34 @@ class DotObj extends GameObject{
                 if (obj.hitable) this.enable = false;
             }
         }
+
+        //エフェクトドット
+        const effectDotInit = (x, y) => {
+            this.initFunc(x, y, 10, 10, null, false);
+            this.degree = 0;
+            this.count = 0;
+            this.countN = 100;
+        }
+        this.initFuncs[DotObj.id.Effect] = (args) => effectDotInit(...args);
+        this.isOutOfScreenFuncs[DotObj.id.Effect] = isOutOfScreenDefault;
+        this.updateFuncs[DotObj.id.Effect] = (gameInfo, input) => {
+            this.degree = (this.degree+0.1);
+            this.count++;
+            if(this.count > this.countN) this.enable = false;    
+        };
+        this.renderFuncs[DotObj.id.Effect] = (canvas) => {
+            const context = canvas.getContext("2d");
+            context.save();
+
+            context.beginPath();
+            context.strokeStyle = "Gray";
+            context.translate(this.x, this.y);
+            context.rotate(this.degree);
+            context.strokeRect(-this.w/2, -this.h/2, this.w, this.h);
+
+            context.restore();
+        }
+        this.hitFuncs[DotObj.id.Effect] = (obj) => {};
     }
 }
 
