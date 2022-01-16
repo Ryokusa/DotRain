@@ -999,10 +999,23 @@ class Game{
 
         this.debug = true;  //デバッグフラグ
 
+        //アクティブ時のみ稼働
         this.pause = false;
-        window.addEventListener("blur", () => this.pause=true);
-        window.addEventListener("focus", () => this.pause=false);
+        window.addEventListener("blur", this.onBlur);
+        window.addEventListener("focus", this.onFocus);
         
+        //スクロールキーはすべて無効
+        window.addEventListener("keydown", (e) => {
+            let code = e.code;
+            switch(code) {
+                case "ArrowLeft":
+                case "ArrowUp":
+                case "ArrowRight":
+                case "ArrowDown": 
+                case "Space":
+                e.preventDefault();
+            } 
+        }, true);
     }
 
     changeScene(newScene, args = {}){
@@ -1039,5 +1052,15 @@ class Game{
 
         this._prevTimestamp = timestamp;
         requestAnimationFrame(this._loop.bind(this));
+    }
+
+    //フォーカズ時
+    onFocus(){
+        this.pause = false;
+    }
+
+    //フォーカスが離れた時
+    onBlur(){
+        this.pause = true;
     }
 }
