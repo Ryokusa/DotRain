@@ -286,3 +286,46 @@ class Player extends SpriteObject{
         return this.hp <= 0 && this.damageCount <= 0;
     }
 }
+
+//スコアビュー
+class ScoreView extends GameObject{
+    constructor(x, y, digitNum = 8){
+        super(x,y,0,0);
+        this.scoreObjs = [];
+        this.digitNum = digitNum;
+        
+        //スコア画像セット
+        this.scoreMoji = new Sprite(assets.get("score"), new Rectangle(0, 0, 50, 50));
+        for (let i = 0; i < 10; i++){
+            this.scoreObjs.push(new Sprite(assets.get("s"+String(i)), new Rectangle(0,0,10,10)));
+        }
+    }
+
+    update(gameInfo, input){
+        super.update(gameInfo, input);
+    }
+
+    render(canvas){
+        //スコア描画
+        const context = canvas.getContext("2d");
+        let score = mainGame.currentScene.score;
+
+        context.drawImage(this.scoreMoji.image, this.x, this.y);
+
+        const w = this.scoreObjs[0].rect.w;
+        for (let i = 0; i < this.digitNum; i++){
+            let ix = this.x + i * w + this.scoreMoji.rect.w;
+            context.drawImage(this.scoreObjs[this.getDigit(score, i+1)].image, ix, this.y);
+        }
+        super.render(canvas);
+    }
+
+    //index桁目の数字を返す
+    getDigit(x, index){
+        for(let i = 0; i < index-1; i++){
+            if(x == 0) return 0;
+            x /= 10;
+        }
+        return parseInt(x) % 10;
+    }
+}

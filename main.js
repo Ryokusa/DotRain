@@ -12,6 +12,9 @@ class MainScene extends Scene{
 
         this.titleScene = titleScene;
 
+        //スコア
+        this.score = 0;
+
         //ステージ準備
         this.loadStage(stageIndex);
         this.stageIndex = stageIndex;
@@ -48,6 +51,8 @@ class MainScene extends Scene{
         this.add(this.dotGroup);
         this.add(this.player);
         this.enemyGroup = stage.enemyGroup;
+
+        this.add(new ScoreView(400 - 10*8-50, 300-10));
         console.log("stage loded");
     }
 
@@ -61,8 +66,6 @@ class MainScene extends Scene{
             this.changeScene(new GameClearScene("gameclear", gameInfo, this.renderingTarget));
         }
     }
-
-    
 }
 
 

@@ -225,6 +225,8 @@ class GameInfo {
 }
 
 //スプライトクラス
+//img：assets.getより入手
+//rect：切り抜き用
 class Sprite {
     //矩形情報は切り抜き用
     constructor(img, rect) {
@@ -507,6 +509,8 @@ class GameObject extends EventDispatcher{
 }
 
 //スプライトオブジェクト
+//x,y：座標
+//sprite：Spriteクラス
 class SpriteObject extends GameObject {
     constructor(x, y, sprite, tags=[]) {
         super(x, y,sprite.rect.w, sprite.rect.h, tags);
