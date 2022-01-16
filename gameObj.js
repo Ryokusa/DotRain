@@ -309,15 +309,16 @@ class ScoreView extends GameObject{
         //スコア描画
         const context = canvas.getContext("2d");
         let score = mainGame.currentScene.score;
+        if(score != undefined){
+            context.drawImage(this.scoreMoji.image, this.x, this.y);
 
-        context.drawImage(this.scoreMoji.image, this.x, this.y);
-
-        const w = this.scoreObjs[0].rect.w;
-        for (let i = 0; i < this.digitNum; i++){
-            let ix = this.x + i * w + this.scoreMoji.rect.w;
-            context.drawImage(this.scoreObjs[this.getDigit(score, i+1)].image, ix, this.y);
+            const w = this.scoreObjs[0].rect.w;
+            for (let i = 0; i < this.digitNum; i++){
+                let ix = this.x + i * w + this.scoreMoji.rect.w;
+                context.drawImage(this.scoreObjs[this.getDigit(score, i+1)].image, ix, this.y);
+            }
+            super.render(canvas);
         }
-        super.render(canvas);
     }
 
     //index桁目の数字を返す
