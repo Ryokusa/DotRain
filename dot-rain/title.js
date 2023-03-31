@@ -1,4 +1,6 @@
-"use strict";
+import { SpriteObject, GameObject, Scene, Sprite, assets, Rectangle, GameEvent } from "./engine";
+import { Menu, MenuItem } from "./gameObj";
+import { MainScene } from "./main";
 //タイトルシーン
 
 
@@ -138,7 +140,7 @@ class HowTo extends GameObject{
     }
 }
 
-class TitleScene extends Scene {
+export class TitleScene extends Scene {
     constructor(renderingTarget, backgroundColor = "#000000") {
         super("タイトル", renderingTarget, backgroundColor);
         this.title = new Title();

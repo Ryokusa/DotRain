@@ -1,6 +1,8 @@
-"use strict"
+import { EnemyGroup, EnemyPart, Enemy, EnemyMap } from "./enemy";
+import { LinearAnimation } from "./animation";
+
 //ステージインフォ（作成中）
-class StageInfo {
+export class StageInfo {
     constructor(mode, g, resistance){
         this.mode = mode;
         this.g = g;
@@ -21,7 +23,7 @@ class Stage{
     }
 }
 
-class Stage1 extends Stage{
+export class Stage1 extends Stage{
     constructor(player, dotGroup){
         super(dotGroup);
         let enemyGroup = new EnemyGroup(dotGroup);

@@ -1,8 +1,8 @@
-"use strict"
+import { EventDispatcher } from "./engine";
 
 //アニメーション集合体
 //getValueのたびにフレームが進む
-class Animator extends EventDispatcher{
+export class Animator extends EventDispatcher{
     constructor(name){
         super();
         this.animations = []
@@ -73,7 +73,7 @@ class Animation extends EventDispatcher{
 }
 
 //直線アニメーション
-class LinearAnimation extends Animation{
+export class LinearAnimation extends Animation{
     constructor(start, end, frameNum){
         super(start, end, frameNum);
     }

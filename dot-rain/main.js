@@ -1,7 +1,11 @@
-"use strict";
+import { Utils, assets, Scene, Game, Debug } from "./engine";
+import { StageInfo, Stage1 } from "./stage";
+import { TitleScene } from "./title";
+import { DotGroup } from "./dotObj";
+import { Player, ScoreView, TextObj } from "./gameObj";
 
 //メインシーン
-class MainScene extends Scene{
+export class MainScene extends Scene{
     constructor(renderingTarget, stageIndex, titleScene){
         super("メイン", renderingTarget, "rgba(100, 0, 0, 0.25)", "multiply");
 
@@ -42,8 +46,7 @@ class MainScene extends Scene{
         this.gameObjs = [];
 
         //ステージクラス
-        const c = Utils.getClass("Stage"+stageIndex);
-        const stage = new c(this.player, this.dotGroup);
+        const stage = new Stage1(this.player, this.dotGroup);
 
         //追加
         stage.gameObjs.forEach((gameObj) => {this.add(gameObj)});
@@ -124,7 +127,7 @@ for (let i = 0; i < 10; i++){
     assets.addImage("s"+i, "img/number/" + i + "s.png")
 }
 
-let mainGame = null;
+export let mainGame = null;
 assets.loadAll().then((a) => {
     mainGame = new MainGame();
     mainGame.start(document.getElementById("game"));

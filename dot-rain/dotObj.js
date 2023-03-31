@@ -1,9 +1,10 @@
-"use strict"
+import { GameObject, Debug, Rectangle, Utils } from "./engine";
+import { Tag } from "./tag";
 
 /*** ドット系 ***/
 
 //ドット親オブジェ
-class DotObj extends GameObject{
+export class DotObj extends GameObject{
     //オブジェid
     static id = {Point:0, 
         NormalBullet:1, 
@@ -323,7 +324,7 @@ class DotObj extends GameObject{
     }
 }
 
-class DotGroup extends GameObject{
+export class DotGroup extends GameObject{
     constructor(maxNum = 2000, parent=undefined){
         super(0,0,0,0);
         this.maxNum = maxNum;   //最大ドット数

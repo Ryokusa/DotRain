@@ -1,7 +1,6 @@
-"use strict";
 
 //汎用関数
-class Utils{
+export class Utils{
     //クラス取得用
     static getClass(classname){
         return Function('return (' + classname + ')')();
@@ -101,7 +100,7 @@ class Utils{
 
 //汎用色クラス
 //キーワード&16進数&rgba表記
-class Color{
+export class Color{
     constructor(){
         //基本色
         this.colors = {black:"#000000", gray:"#808080", silver:"C0C0C0", white:"#FFFFFF", blue:"#0000FF", navy:"#000080", teal:"#008080", green:"#008000", lime:"#00FF00", aqua:"#00FFFF", yellow:"FFFF00", red:"#FF0000", fuchsia:"#FF00FF", olive:"#808000", purple:"#800080", maroon:"#800000"};
@@ -146,7 +145,7 @@ class Color{
 }
 
 //デバッグ
-class Debug{
+export class Debug{
     static p;
     static text;
     static setDebugElement(element){
@@ -170,7 +169,7 @@ class Debug{
 }
 
 //矩形クラス
-class Rectangle {
+export class Rectangle {
     constructor(x, y, w, h){
         this.x = x;
         this.y = y;
@@ -197,7 +196,7 @@ class Rectangle {
     }
 }
 
-class Point {
+export class Point {
     constructor(x, y){
         this.x = x;
         this.y = y;
@@ -205,7 +204,7 @@ class Point {
 }
 
 //ゲームの基本情報
-class GameInfo {
+export class GameInfo {
     constructor(title, w, h, maxFps, currentFps){
         this.title = title;
         this.w = w;
@@ -227,7 +226,7 @@ class GameInfo {
 //スプライトクラス
 //img：assets.getより入手
 //rect：切り抜き用
-class Sprite {
+export class Sprite {
     //矩形情報は切り抜き用
     constructor(img, rect) {
         this.image = img;
@@ -236,7 +235,7 @@ class Sprite {
 }
 
 //アセットローター
-class AssetLoader {
+export class AssetLoader {
     constructor(){
         this._promises = [];        //読み込み待機用
         this._assets = new Map();   //アセット格納
@@ -267,10 +266,10 @@ class AssetLoader {
     }
 }
 //staticにできないので
-const assets = new AssetLoader();
+export const assets = new AssetLoader();
 
 //イベントディスパッチャー
-class EventDispatcher {
+export class EventDispatcher {
     constructor(){
         this._eventListeners = {}
     }
@@ -293,14 +292,14 @@ class EventDispatcher {
 }
 
 //イベントリスナーで使うイベントクラス
-class GameEvent{
+export class GameEvent{
     constructor(target){
         this.target = target;
     }
 }
 
 //ゲームオブジェ
-class GameObject extends EventDispatcher{
+export class GameObject extends EventDispatcher{
     constructor(local_x, local_y, w, h, originTags = []){
         super();
         this.rect = new Rectangle(this.x, this.y, this.w, this.h);
@@ -511,7 +510,7 @@ class GameObject extends EventDispatcher{
 //スプライトオブジェクト
 //x,y：座標
 //sprite：Spriteクラス
-class SpriteObject extends GameObject {
+export class SpriteObject extends GameObject {
     constructor(x, y, sprite, tags=[]) {
         super(x, y,sprite.rect.w, sprite.rect.h, tags);
         console.log(this._w, this._h);
@@ -539,7 +538,7 @@ class SpriteObject extends GameObject {
 }
 
 //入力情報クラス
-class Input {
+export class Input {
     constructor(keyMap, prevKeyMap, mouse) {
         this.keyMap = keyMap;
         this.prevKeyMap = prevKeyMap;
@@ -580,7 +579,7 @@ class Input {
 }
 
 //入力受け取りクラス
-class InputReceiver {
+export class InputReceiver {
     constructor(el) {
         this._keyMap = new Map();
         this._prevKeyMap = new Map();
@@ -615,7 +614,7 @@ class InputReceiver {
 
 //マウスインプット情報クラス
 //TODO: スケールを変えても動作するように
-class MouseInput {
+export class MouseInput {
     constructor(){
         this.x = 0;
         this.y = 0;
@@ -623,7 +622,7 @@ class MouseInput {
     }
 }
 
-class Scene extends EventDispatcher {
+export class Scene extends EventDispatcher {
     constructor(name, renderingTarget, backgroundColor = "#FFFFFF", bgRenderMode="source-over") {
         super();
 
@@ -982,7 +981,7 @@ class Scene extends EventDispatcher {
 
 //ゲームクラス
 //TODO: コンストラクタにシーンを指定で初期画面設定を可能に
-class Game{
+export class Game{
     constructor(title, width, height, maxFps, scale = 1){
         this.gameInfo = new GameInfo(title, width, height, maxFps, 0)
 

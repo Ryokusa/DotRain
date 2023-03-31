@@ -1,7 +1,6 @@
-"use strict"
 //タグ一覧
 
-const Tag = {player : "player",
+export const Tag = {player : "player",
              point_circle : "point_circle",
              bullet : "bullet", 
              normal_bullet : "n_bullet",

@@ -1,4 +1,7 @@
-"use strict"
+import { GameObject, Utils } from "./engine";
+import { Animator } from "./animation";
+import { Tag } from "./tag";
+import { DotObj } from "./dotObj";
 
 //クラス追加方法
 /*
@@ -8,7 +11,7 @@
 
 
 //敵の体 親クラス
-class EnemyPart extends GameObject{
+export class EnemyPart extends GameObject{
     static Type = {None: -1, normal : 0, red : 1, battery : 2};                           //タイプ数値
     static ClassName = ["NormalEnemyPart", "RedEmemyPart", "BatteryEnemyPart"];
 
@@ -53,7 +56,7 @@ class EnemyPart extends GameObject{
 
 //ノーマル
 //ただポイントを発生させる体当たり野郎
-class NormalEnemyPart extends EnemyPart{
+export class NormalEnemyPart extends EnemyPart{
     constructor(dotGroup, x, y, w, h){
         super(dotGroup, x, y, w, h, 20, 3, "#9999FF");
         this.hitTags.push(Tag.splash);
@@ -62,7 +65,7 @@ class NormalEnemyPart extends EnemyPart{
 
 //レッド
 //試験用
-class RedEmemyPart extends EnemyPart{
+export class RedEmemyPart extends EnemyPart{
     constructor(dotGroup, x, y, w, h){
         super(dotGroup, x, y, w, h, 100, 3, "#FF9999");
         this.hitTags.push(Tag.splash);
@@ -71,7 +74,7 @@ class RedEmemyPart extends EnemyPart{
 
 //砲台
 //弾発射
-class BatteryEnemyPart extends EnemyPart{
+export class BatteryEnemyPart extends EnemyPart{
     constructor(dotGroup, x, y, w, h){
         super(dotGroup, x, y, w, h, 50, 3, "#FF2222");
         //this.hitTags.push(Tag.splash);
@@ -95,10 +98,12 @@ class BatteryEnemyPart extends EnemyPart{
     }
 }
 
- 
+const enemyPartClasses = [NormalEnemyPart, RedEmemyPart, BatteryEnemyPart]
+
+
 //エネミー
 //敵リソース管理
-class Enemy extends GameObject{
+export class Enemy extends GameObject{
     constructor(player, dotGroup, x, y, dw, dh, enemyMap){
         super(x, y, 0, 0);
         this.dw = dw;
@@ -129,9 +134,8 @@ class Enemy extends GameObject{
     //タイプ別に敵追加
     addEnemyPart(dotGroup, type, x, y){
         if(type == EnemyPart.Type.None) return;
-        
-        let c = Utils.getClass(EnemyPart.ClassName[type]);
-        this.addChild(new c(dotGroup, x, y, this.dw, this.dh));
+
+        this.addChild(new enemyPartClasses[type](dotGroup, x, y, this.dw, this.dh));
     }
 
     update(gameInfo, input){
@@ -197,7 +201,7 @@ class Enemy extends GameObject{
 
 
 //エネミーマップ
-class EnemyMap {
+export class EnemyMap {
     constructor(map = []){
         this.map = map;
         this.w = this.map[0].length;
@@ -206,7 +210,7 @@ class EnemyMap {
 }
 
 //エネミーグループ
-class EnemyGroup extends GameObject{
+export class EnemyGroup extends GameObject{
     constructor(dotGroup, enemys = []){
         super(0, 0, 0, 0);
         this.dotGroup = dotGroup;

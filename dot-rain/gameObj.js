@@ -1,9 +1,13 @@
-"use strict";
+import { GameObject, SpriteObject, Sprite, assets, Rectangle, Debug, Utils, GameEvent } from "./engine";
+import { Tag } from "./tag";
+import { Animator, LinearAnimation } from "./animation";
+import { mainGame } from "./main";
+import { DotObj } from "./dotObj";
 
 /*** メニュー系 ***/
 
 //メニューアイテム
-class MenuItem extends GameObject{
+export class MenuItem extends GameObject{
     constructor(text, type="text",font="20px sans-serif", color="#FFFFFF"){
         super(0, 0, 0, 0);
         this.text = text;
@@ -26,7 +30,7 @@ class MenuItem extends GameObject{
 }
 
 //メニューオブジェ
-class Menu extends GameObject{
+export class Menu extends GameObject{
     constructor(x, y, items = [], selectorX = -20, textHeight = 20){
         super(x, y, 0, 0);
         items.forEach((item) => this.addChild(item));
@@ -66,7 +70,7 @@ class Menu extends GameObject{
 //テキストオブジェ
 //とりあえず表示機能だけ
 //引数pos {type:座標指定("pos")かどうか, x: y: 座標}
-class TextObj extends GameObject{
+export class TextObj extends GameObject{
     constructor(text, x, y, align = "left", color = "#FFFFFF", size = 20, font="sans-serif"){
         super(x,y,0,0);
         this.text = text;
@@ -89,7 +93,7 @@ class TextObj extends GameObject{
 /***  ゲーム内オブジェ系 ***/
 
 //プレイヤー
-class Player extends SpriteObject{
+export class Player extends SpriteObject{
     constructor(dotGroup, x, y, hp, shotInterval = 5, speed = 3.0, pointRadian = 20, hitTags = [Tag.enemy, Tag.enemy_bullet]){
         const img = new Sprite(assets.get("player"), new Rectangle(0, 0, 15, 15));
         super(x, y, img);
@@ -308,7 +312,7 @@ class Player extends SpriteObject{
 }
 
 //スコアビュー
-class ScoreView extends GameObject{
+export class ScoreView extends GameObject{
     constructor(x, y, digitNum = 8){
         super(x,y,0,0);
         this.scoreObjs = [];
