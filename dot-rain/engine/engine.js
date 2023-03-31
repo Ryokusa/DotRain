@@ -1,4 +1,5 @@
 import { insertionSort, getMortonNumber } from "./Utils";
+import * as Debug from "./Debug"
 
 //汎用色クラス
 //キーワード&16進数&rgba表記
@@ -43,30 +44,6 @@ export class Color{
         }
         if (color.length == 4) this.a = parseFloat(color[3]);
         else this.a = 1
-    }
-}
-
-//デバッグ
-export class Debug{
-    static p;
-    static text;
-    static setDebugElement(element){
-        this.p = document.createElement("p");
-        element.appendChild(this.p);
-    }
-
-    //["名前", 変数]で表示
-    static addText(...val){
-        const len = val.length;
-        for (let i = 0; i < len; i++){
-            this.text += val[i][0] + ":" + val[i][1] + "\t";
-        }
-        this.text += "<br>";
-    }
-
-    static render(){
-        this.p.innerHTML = this.text;
-        this.text = "";
     }
 }
 

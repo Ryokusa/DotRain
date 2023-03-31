@@ -1,6 +1,7 @@
-import { GameObject, Debug, Rectangle } from "./engine/engine";
+import { GameObject, Rectangle } from "./engine/engine";
 import { getUnitVector } from "./engine/Utils";
 import { Tag } from "./tag";
+import * as Debug from "./engine/Debug"
 
 /*** ドット系 ***/
 

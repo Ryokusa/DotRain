@@ -1,9 +1,10 @@
-import { GameObject, SpriteObject, Sprite, assets, Rectangle, Debug, GameEvent } from "./engine/engine";
+import { GameObject, SpriteObject, Sprite, assets, Rectangle, GameEvent } from "./engine/engine";
 import { getUnitVector } from "./engine/Utils";
 import { Tag } from "./tag";
 import { Animator, LinearAnimation } from "./animation";
 import { mainGame } from "./main";
 import { DotObj } from "./dotObj";
+import * as Debug from "./engine/Debug"
 
 /*** メニュー系 ***/
 
