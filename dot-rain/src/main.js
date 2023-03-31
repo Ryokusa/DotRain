@@ -1,6 +1,6 @@
 import { assets } from "./engine/engine";
 import * as Debug from "./engine/Debug"
-import Scene from "./engine/Scene";
+import Scene from "./engine/Game/Scene";
 import Game from "./engine/Game";
 import { StageInfo, Stage1 } from "./stage";
 import { TitleScene } from "./title";

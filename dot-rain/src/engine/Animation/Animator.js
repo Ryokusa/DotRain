@@ -1,8 +1,8 @@
-import EventDispatcher from "./engine/EventDispatcher";
+import EventDispatcher from "../EventDispatcher";
 
 //アニメーション集合体
 //getValueのたびにフレームが進む
-export class Animator extends EventDispatcher{
+export default class Animator extends EventDispatcher{
     constructor(name){
         super();
         this.animations = []
@@ -49,47 +49,5 @@ export class Animator extends EventDispatcher{
         this.animations.forEach((animation) => {
             animation.reset();
         })
-    }
-}
-
-//アニメーション
-//直線移動などのオブジェ
-class Animation extends EventDispatcher{
-    constructor(start, end, frameNum){
-        super();
-        this.start = start;
-        this.end = end;
-        this.frameNum = frameNum;
-        this.frame = 0;
-    }
-
-    getValue(){
-
-    }
-
-    reset(){
-        this.frame = 0;
-    }
-}
-
-//直線アニメーション
-export class LinearAnimation extends Animation{
-    constructor(start, end, frameNum){
-        super(start, end, frameNum);
-    }
-
-    getValue(frame){
-
-        const distance = this.end - this.start;
-        const result = this.start + distance * (this.frame / this.frameNum);
-        this.frame += frame;
-
-        //ラストフレームイベント
-        if(this.frame >= this.frameNum){
-            this.dispatchEvent("lastFrame", this);
-            this.reset();
-        }
-
-        return result;
     }
 }

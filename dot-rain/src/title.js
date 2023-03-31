@@ -1,10 +1,10 @@
 import { assets } from "./engine/engine";
 import Rectangle from "./engine/Rectangle";
 import Sprite from "./engine/Sprite";
-import GameEvent from "./engine/GameEvent";
-import GameObject from "./engine/GameObject";
-import SpriteObject from "./engine/SpriteObject";
-import Scene from "./engine/Scene";
+import GameEvent from "./engine/Game/GameEvent";
+import GameObject from "./engine/Game/GameObject";
+import SpriteObject from "./engine/Game/GameObject/SpriteObject";
+import Scene from "./engine/Game/Scene";
 import { Menu, MenuItem } from "./gameObj";
 import { MainScene } from "./main";
 

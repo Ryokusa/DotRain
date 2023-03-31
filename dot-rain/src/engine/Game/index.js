@@ -1,6 +1,6 @@
 import GameInfo from "./GameInfo";
-import InputReceiver from "./InputReceiver";
-import * as Debug from "./Debug"
+import InputReceiver from "../Input/InputReceiver";
+import * as Debug from "../Debug"
 
 //ゲームクラス
 //TODO: コンストラクタにシーンを指定で初期画面設定を可能に

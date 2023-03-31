@@ -1,8 +1,8 @@
-import EventDispatcher from "./EventDispatcher";
-import GameEvent from "./GameEvent";
-import Color from "./Color";
-import * as Debug from "./Debug"
-import { getMortonNumber } from "./Utils";
+import EventDispatcher from "../../EventDispatcher";
+import GameEvent from "../GameEvent";
+import Color from "../../Color";
+import * as Debug from "../../Debug"
+import { getMortonNumber } from "../../Utils";
 
 export default class Scene extends EventDispatcher {
     constructor(name, renderingTarget, backgroundColor = "#FFFFFF", bgRenderMode="source-over") {

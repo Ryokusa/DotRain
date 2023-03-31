@@ -1,5 +1,5 @@
-import EventDispatcher from "./EventDispatcher";
-import Rectangle from "./Rectangle";
+import EventDispatcher from "../../EventDispatcher";
+import Rectangle from "../../Rectangle";
 
 //ゲームオブジェ
 export default class GameObject extends EventDispatcher{

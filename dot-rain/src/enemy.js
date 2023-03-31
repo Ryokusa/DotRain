@@ -1,5 +1,5 @@
-import GameObject from "./engine/GameObject";
-import { Animator } from "./animation";
+import GameObject from "./engine/Game/GameObject";
+import Animator from "./engine/Animation/Animator";
 import { Tag } from "./tag";
 import { DotObj } from "./dotObj";
 

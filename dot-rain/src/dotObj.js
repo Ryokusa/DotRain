@@ -1,4 +1,4 @@
-import GameObject from "./engine/GameObject";
+import GameObject from "./engine/Game/GameObject";
 import { getUnitVector } from "./engine/Utils";
 import Rectangle from "./engine/Rectangle";
 import { Tag } from "./tag";

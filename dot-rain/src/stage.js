@@ -1,5 +1,5 @@
 import { EnemyGroup, EnemyPart, Enemy, EnemyMap } from "./enemy";
-import { LinearAnimation } from "./animation";
+import LinearAnimation from "./engine/Animation/LinearAnimation"
 
 //ステージインフォ（作成中）
 export class StageInfo {

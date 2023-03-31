@@ -1,5 +1,5 @@
-import MouseInput from "./MouseInput";
-import Input from "./Input";
+import MouseInput from "../MouseInput";
+import Input from ".";
 
 //入力受け取りクラス
 export default class InputReceiver {

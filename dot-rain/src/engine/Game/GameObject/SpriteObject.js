@@ -1,4 +1,4 @@
-import GameObject from "./GameObject";
+import GameObject from "../GameObject";
 
 //スプライトオブジェクト
 //x,y：座標
