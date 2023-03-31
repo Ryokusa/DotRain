@@ -1,8 +1,11 @@
-import { SpriteObject, GameObject, Scene, Sprite, assets, Rectangle, GameEvent } from "./engine/engine";
+import { SpriteObject, GameObject, Scene, assets } from "./engine/engine";
+import Rectangle from "./engine/Rectangle";
+import Sprite from "./engine/Sprite";
+import GameEvent from "./engine/GameEvent";
 import { Menu, MenuItem } from "./gameObj";
 import { MainScene } from "./main";
-//タイトルシーン
 
+//タイトルシーン
 
 class Title extends SpriteObject{
     constructor(){
