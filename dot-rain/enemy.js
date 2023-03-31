@@ -1,4 +1,4 @@
-import { GameObject, Utils } from "./engine";
+import { GameObject } from "./engine/engine";
 import { Animator } from "./animation";
 import { Tag } from "./tag";
 import { DotObj } from "./dotObj";

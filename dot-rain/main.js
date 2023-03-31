@@ -1,4 +1,4 @@
-import { Utils, assets, Scene, Game, Debug } from "./engine";
+import { assets, Scene, Game, Debug } from "./engine/engine";
 import { StageInfo, Stage1 } from "./stage";
 import { TitleScene } from "./title";
 import { DotGroup } from "./dotObj";

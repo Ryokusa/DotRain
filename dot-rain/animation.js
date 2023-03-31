@@ -1,4 +1,4 @@
-import { EventDispatcher } from "./engine";
+import { EventDispatcher } from "./engine/engine";
 
 //アニメーション集合体
 //getValueのたびにフレームが進む

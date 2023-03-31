@@ -1,4 +1,5 @@
-import { GameObject, SpriteObject, Sprite, assets, Rectangle, Debug, Utils, GameEvent } from "./engine";
+import { GameObject, SpriteObject, Sprite, assets, Rectangle, Debug, GameEvent } from "./engine/engine";
+import { getUnitVector } from "./engine/Utils";
 import { Tag } from "./tag";
 import { Animator, LinearAnimation } from "./animation";
 import { mainGame } from "./main";
@@ -184,8 +185,6 @@ export class Player extends SpriteObject{
         Debug.addText(["x", this.x.toFixed()], ["y", this.y.toFixed()]);
         Debug.addText(["enable", this.enable]);
 
-        Debug.addText(["c", mainGame.gameInfo.currentScene]);
-
         //エフェクトテスト
         const dx = this.x - this.px;
         const dy = this.y - this.py;
@@ -267,7 +266,7 @@ export class Player extends SpriteObject{
         for (let i = 0; i < power; i++){
             const x = Math.random() - 0.5;
             const y = Math.random() - 0.5;
-            const d = Utils.getUnitVector(0, 0, x, y);
+            const d = getUnitVector(0, 0, x, y);
             dx = d.x * radian * Math.random();
             dy = d.y * radian * Math.random();
             this.dotGroup.addDot(DotObj.id.RedSplash, [centerPos.x, centerPos.y, dx, dy]);

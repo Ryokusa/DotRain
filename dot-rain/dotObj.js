@@ -1,4 +1,5 @@
-import { GameObject, Debug, Rectangle, Utils } from "./engine";
+import { GameObject, Debug, Rectangle } from "./engine/engine";
+import { getUnitVector } from "./engine/Utils";
 import { Tag } from "./tag";
 
 /*** ドット系 ***/
@@ -368,7 +369,7 @@ export class DotGroup extends GameObject{
     explosion(x, y, force){
         this.childs.forEach((child) =>{
             if(child.gravity && child.enable){
-                const d = Utils.getUnitVector(x, y, child.x, child.y);
+                const d = getUnitVector(x, y, child.x, child.y);
                 child.dx += d.x * force;
                 child.dy += d.y * force;
             }

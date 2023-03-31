@@ -1,3 +1,5 @@
+import { insertionSort, getMortonNumber } from "./Utils";
+
 
 //汎用関数
 export class Utils{
@@ -680,7 +682,7 @@ export class Scene extends EventDispatcher {
         this.allObjs = this.getAllobj();
         this.makePoints();
         const a = [{value:2}, {value:1}, {value:5},{value:6}, {value:4}];
-        Utils.insertionSort(a, this.valueCompareFunc);
+        insertionSort(a, this.valueCompareFunc);
         console.log(a);
     }
 
@@ -801,8 +803,8 @@ export class Scene extends EventDispatcher {
             else y_point.value = yRect.y;
         }
         
-        Utils.insertionSort(this.x_points, this.valueCompareFunc);
-        Utils.insertionSort(this.y_points, this.valueCompareFunc);
+        insertionSort(this.x_points, this.valueCompareFunc);
+        insertionSort(this.y_points, this.valueCompareFunc);
 
         let x_pair = [];
         let y_pair = [];
@@ -867,8 +869,8 @@ export class Scene extends EventDispatcher {
         for (let i = 0; i < objs.length; i++){
             rect = objs[i].getRect();
             if (rect.w == 0) continue;
-            const index1 = Utils.getMortonNumber(parseInt(rect.x / dx), parseInt(rect.y / dy));
-            const index2 = Utils.getMortonNumber(parseInt((rect.x+rect.w-1) / dx), parseInt((rect.y+rect.h-1) / dy));
+            const index1 = getMortonNumber(parseInt(rect.x / dx), parseInt(rect.y / dy));
+            const index2 = getMortonNumber(parseInt((rect.x+rect.w-1) / dx), parseInt((rect.y+rect.h-1) / dy));
             let index = index1 ^ index2;
 
             //どの空間なのか

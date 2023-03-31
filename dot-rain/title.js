@@ -1,4 +1,4 @@
-import { SpriteObject, GameObject, Scene, Sprite, assets, Rectangle, GameEvent } from "./engine";
+import { SpriteObject, GameObject, Scene, Sprite, assets, Rectangle, GameEvent } from "./engine/engine";
 import { Menu, MenuItem } from "./gameObj";
 import { MainScene } from "./main";
 //タイトルシーン
