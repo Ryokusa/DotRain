@@ -1,4 +1,4 @@
-import MouseInput from "../MouseInput";
+import MouseInput from "./MouseInput";
 import Input from ".";
 
 //入力受け取りクラス
