@@ -1,7 +1,7 @@
 import { DotGroup } from "../dotObj";
 import { Player, ScoreView } from "../gameObj";
 import { Stage1 } from "../stage";
-import { mainGame } from "../main";
+import { mainGame } from "../Global";
 import GameOverScene from "./GameOverScene";
 import GameClearScene from "./GameClearScene";
 

@@ -1,6 +1,9 @@
 import { assets } from "./engine/engine";
 import * as Debug from "./engine/Debug";
 import MainGame from "./MainGame";
+import { setMainGame } from "./Global";
+
+console.log("main")
 
 //ゲーム開始
 Debug.setDebugElement(document.getElementById("debug"));
@@ -12,9 +15,9 @@ for (let i = 0; i < 10; i++){
     assets.addImage("s"+i, "img/number/" + i + "s.png")
 }
 
-export let mainGame = null;
 assets.loadAll().then((a) => {
-    mainGame = new MainGame();
+    const mainGame = new MainGame()
+    setMainGame(mainGame)
     mainGame.start(document.getElementById("game"));
     console.log("loaded");
 }).catch((e) => {

@@ -8,7 +8,7 @@ import SpriteObject from "./engine/Game/GameObject/SpriteObject";
 import Animator from "./engine/Animation/Animator";
 import LinearAnimation from "./engine/Animation/LinearAnimation";
 import { Tag } from "./tag";
-import { mainGame } from "./main";
+import { mainGame } from "./Global";
 import { DotObj } from "./dotObj";
 import * as Debug from "./engine/Debug"
 
