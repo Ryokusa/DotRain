@@ -3,6 +3,7 @@ import { getUnitVector } from "./engine/Utils";
 import Rectangle from "./engine/Rectangle";
 import { Tag } from "./tag";
 import * as Debug from "./engine/Debug"
+import GameEvent from "./engine/Game/GameEvent"
 
 
 /*** ドット系 ***/
