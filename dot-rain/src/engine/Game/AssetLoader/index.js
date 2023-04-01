@@ -10,12 +10,15 @@ export default class AssetLoader {
         img.src = src;
 
         //読み込み待機用
-        const promise = new Promise((resolve, reject) =>
+        const promise = new Promise((resolve, reject) => {
             img.addEventListener("load", (e) => {
                 this._assets.set(name, img);
                 resolve(img);
-            }));
-
+            });
+            img.addEventListener("error", () =>{
+                reject(src)
+            });
+        })
         this._promises.push(promise);
     }
 

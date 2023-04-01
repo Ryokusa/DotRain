@@ -17,4 +17,8 @@ assets.loadAll().then((a) => {
     mainGame = new MainGame();
     mainGame.start(document.getElementById("game"));
     console.log("loaded");
+}).catch((e) => {
+    const msg = `アセットが読み込めませんでした：${e}`
+    console.error(msg)
+    alert(msg)
 })
