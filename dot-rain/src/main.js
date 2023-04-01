@@ -1,10 +1,9 @@
 import { assets } from "./engine/engine";
 import * as Debug from "./engine/Debug";
-import Scene from "./engine/Game/Scene";
 import Game from "./engine/Game";
+
 import { StageInfo } from "./stage";
 import { TitleScene } from "./title";
-import { TextObj } from "./gameObj";
 
 class MainGame extends Game{
     constructor(){
