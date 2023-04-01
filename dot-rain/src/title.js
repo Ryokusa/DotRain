@@ -6,10 +6,9 @@ import GameObject from "./engine/Game/GameObject";
 import SpriteObject from "./engine/Game/GameObject/SpriteObject";
 import Scene from "./engine/Game/Scene";
 import { Menu, MenuItem } from "./gameObj";
-import { MainScene } from "./main";
+import MainScene from "./Scenes/MainScene";
 
 //タイトルシーン
-
 class Title extends SpriteObject{
     constructor(){
         const img = new Sprite(assets.get("menu"), new Rectangle(0, 0, 400, 300));
